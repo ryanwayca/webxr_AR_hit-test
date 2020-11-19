@@ -206,7 +206,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         reticle.visible = false;
 
 //////// LIGHTING ESTIMATION //////////
-        let lightEstimate = xrFrame.getLightEstimate(lightProbe);
+        let lightEstimate = frame.getLightEstimate(lightProbe);
 
         let intensity = Math.max(1.0,
                         Math.max(lightEstimate.primaryLightIntensity.x,
