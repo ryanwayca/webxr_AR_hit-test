@@ -195,7 +195,17 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
       let lightProbe = await xrSession.requestLightProbe();
 
-      function onXRFrame(t, xrFrame) {
+/////// END //////////
+
+
+      // Called every time a XRSession requests that a new frame be drawn.
+      function onXRFrame(t, frame) {
+        let session = frame.session;
+        let pose = frame.getViewerPose(xrRefSpace);
+
+        reticle.visible = false;
+
+//////// LIGHTING ESTIMATION //////////
         let lightEstimate = xrFrame.getLightEstimate(lightProbe);
 
         let intensity = Math.max(1.0,
@@ -214,17 +224,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         threeLightProbe.sh.fromArray(lightEstimate.sphericalHarmonicsCoefficients);
 
         // ... other typical frame loop stuff.
-      }
-
 /////// END //////////
 
-
-      // Called every time a XRSession requests that a new frame be drawn.
-      function onXRFrame(t, frame) {
-        let session = frame.session;
-        let pose = frame.getViewerPose(xrRefSpace);
-
-        reticle.visible = false;
 
         // If we have a hit test source, get its results for the frame
         // and use the pose to display a reticle in the scene.
