@@ -65,9 +65,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       arObject.visible = false;
       scene.addNode(arObject);
 
-      let flower = new Gltf2Node({url: 'assets/SC_Kiosk.gltf'});
-      vec3.set(flower.scale, 0.275, 0.275, 0.275);
-      arObject.addNode(flower);
+      let kiosk = new Gltf2Node({url: 'assets/SC_Kiosk.gltf'});
+      vec3.set(kiosk.scale, 0.275, 0.275, 0.275);
+      arObject.addNode(kiosk);
 
       let reticle = new Gltf2Node({url: 'media/gltf/reticle/reticle.gltf'});
       reticle.visible = false;
@@ -79,8 +79,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       vec3.set(shadow.scale, 0.65, 0.65, 0.65);
       arObject.addNode(shadow);
 
-      const MAX_FLOWERS = 1;
-      let flowers = [];
+      const MAX_KIOSKS = 1;
+      let kiosks = [];
 
       // Ensure the background is transparent for AR.
       scene.clear = false;
@@ -158,19 +158,19 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       // Adds a new object to the scene at the
       // specificed transform.
       function addARObjectAt(matrix) {
-        let newFlower = arObject.clone();
-        newFlower.visible = true;
-        newFlower.matrix = matrix;
-        scene.addNode(newFlower);
+        let newKiosk = arObject.clone();
+        newKiosk.visible = true;
+        newKiosk.matrix = matrix;
+        scene.addNode(newKiosk);
 
-        flowers.push(newFlower);
+        kiosks.push(newKiosk);
 
         // For performance reasons if we add too many objects start
         // removing the oldest ones to keep the scene complexity
         // from growing too much.
-        if (flowers.length > MAX_FLOWERS) {
-          let oldFlower = flowers.shift();
-          scene.removeNode(oldFlower);
+        if (kiosks.length > MAX_KIOSKS) {
+          let oldKiosk = kiosks.shift();
+          scene.removeNode(oldKiosk);
         }
       }
 
