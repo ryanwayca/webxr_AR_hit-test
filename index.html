@@ -66,7 +66,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       scene.addNode(arObject);
 
       let flower = new Gltf2Node({url: 'assets/SC_Kiosk.gltf'});
-      vec3.set(flower.scale, 0.25, 0.25, 0.25);
+      vec3.set(flower.scale, 0.35, 0.35, 0.35);
       arObject.addNode(flower);
 
       let reticle = new Gltf2Node({url: 'media/gltf/reticle/reticle.gltf'});
@@ -76,7 +76,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       // Having a really simple drop shadow underneath an object helps ground
       // it in the world without adding much complexity.
       let shadow = new DropShadowNode();
-      vec3.set(shadow.scale, 0.15, 0.15, 0.15);
+      vec3.set(shadow.scale, 0.4, 0.4, 0.4);
       arObject.addNode(shadow);
 
       const MAX_FLOWERS = 1;
