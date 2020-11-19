@@ -185,47 +185,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         }
       }
 
-
-//////// LIGHTING ESTIMATION //////////
-
-      // Using Three.js to demonstrate
-      let threeDirectionalLight = new THREE.DirectionalLight();
-      // THREE.LightProbe is Three.js' spherical harmonics-based light type.
-      let threeLightProbe = new THREE.LightProbe();
-
-      let lightProbe = await xrSession.requestLightProbe();
-
-/////// END //////////
-
-
       // Called every time a XRSession requests that a new frame be drawn.
       function onXRFrame(t, frame) {
         let session = frame.session;
         let pose = frame.getViewerPose(xrRefSpace);
 
         reticle.visible = false;
-
-//////// LIGHTING ESTIMATION //////////
-        let lightEstimate = frame.getLightEstimate(lightProbe);
-
-        let intensity = Math.max(1.0,
-                        Math.max(lightEstimate.primaryLightIntensity.x,
-                        Math.max(lightEstimate.primaryLightIntensity.y,
-                                lightEstimate.primaryLightIntensity.z)));
-
-        threeDirectionalLight.position.set(lightEstimate.primaryLightDirection.x,
-                                          lightEstimate.primaryLightDirection.y,
-                                          lightEstimate.primaryLightDirection.z);
-        threeDirectionalLight.color.setRGB(lightEstimate.primaryLightIntensity.x / intensity,
-                                          lightEstimate.primaryLightIntensity.y / intensity,
-                                          lightEstimate.primaryLightIntensity.z / intensity);
-        threeDirectionalLight.intensity = intensity;
-
-        threeLightProbe.sh.fromArray(lightEstimate.sphericalHarmonicsCoefficients);
-
-        // ... other typical frame loop stuff.
-/////// END //////////
-
 
         // If we have a hit test source, get its results for the frame
         // and use the pose to display a reticle in the scene.
