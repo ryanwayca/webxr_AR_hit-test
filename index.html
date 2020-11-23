@@ -49,8 +49,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       import {vec3} from './js/render/math/gl-matrix.js';
       import {Ray} from './js/render/math/ray.js';
 
-      import * as THREE from 'https://unpkg.com/three/build/three.module.js';
-
       // XR globals.
       let xrButton = null;
       let xrRefSpace = null;
@@ -83,38 +81,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
       const MAX_KIOSKS = 1;
       let kiosks = [];
-
-///// LIGHT TEST //////
-      
-        var light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
-				light.position.set( 0.5, 1, 0.25 );
-				scene.add( light );
-
-      /*
-      let lightProbe = await xrSession.requestLightProbe();
-      let probePose = xrFrame.getPose(lightProbe.probeSpace, xrReferenceSpace);
-      
-      function onXRFrame(t, xrFrame) {
-        let lightEstimate = xrFrame.getLightEstimate(lightProbe);
-
-        let intensity = Math.max(1.0,
-                        Math.max(lightEstimate.primaryLightIntensity.x,
-                        Math.max(lightEstimate.primaryLightIntensity.y,
-                                lightEstimate.primaryLightIntensity.z)));
-
-        threeDirectionalLight.position.set(lightEstimate.primaryLightDirection.x,
-                                          lightEstimate.primaryLightDirection.y,
-                                          lightEstimate.primaryLightDirection.z);
-        threeDirectionalLight.color.setRGB(lightEstimate.primaryLightIntensity.x / intensity,
-                                          lightEstimate.primaryLightIntensity.y / intensity,
-                                          lightEstimate.primaryLightIntensity.z / intensity);
-        threeDirectionalLight.intensity = intensity;
-
-        threeLightProbe.sh.fromArray(lightEstimate.sphericalHarmonicsCoefficients);
-
-        // ... other typical frame loop stuff.
-      }*/
-
 
       // Ensure the background is transparent for AR.
       scene.clear = false;
