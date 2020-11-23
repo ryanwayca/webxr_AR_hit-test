@@ -55,6 +55,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       let xrViewerSpace = null;
       let xrHitTestSource = null;
 
+      let xrLighting;
+
+      xrLighting = new XRLighting(renderer);
+      scene.add(xrLighting);
+
       // WebGL scene globals.
       let gl = null;
       let renderer = null;
@@ -73,7 +78,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       reticle.visible = false;
       scene.addNode(reticle);
 
-      const light = new THREE.AmbientLight( 0x404040 ); // soft white light
+      let light = new AmbientLight( 0x404040 ); // soft white light
       scene.add( light );
 
       // Having a really simple drop shadow underneath an object helps ground
