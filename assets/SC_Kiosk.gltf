@@ -101,22 +101,23 @@
     ],
     "materials" : [
         {
+            "alphaMode" : "BLEND",
             "doubleSided" : true,
             "emissiveFactor" : [
                 0,
                 0,
                 0
             ],
-            "name" : "GlassClear",
+            "name" : "Glass Blue",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
-                    0.8857142925262451,
-                    0.949999988079071,
-                    1,
-                    0.1489361971616745
+                    0,
+                    0.6936665773391724,
+                    0.8000000715255737,
+                    1
                 ],
                 "metallicFactor" : 0,
-                "roughnessFactor" : 0.2533687949180603
+                "roughnessFactor" : 0.5
             }
         },
         {
