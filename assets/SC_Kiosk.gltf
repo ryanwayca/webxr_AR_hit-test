@@ -196,22 +196,8 @@
         {
             "alphaMode" : "BLEND",
             "doubleSided" : true,
-            "emissiveFactor" : [
-                0,
-                0,
-                0
-            ],
             "name" : "Glass Blue",
-            "pbrMetallicRoughness" : {
-                "baseColorFactor" : [
-                    0,
-                    0.6936665773391724,
-                    0.8000000715255737,
-                    0.5
-                ],
-                "metallicFactor" : 0,
-                "roughnessFactor" : 0.5
-            }
+            "pbrMetallicRoughness" : {}
         },
         {
             "doubleSided" : true,
