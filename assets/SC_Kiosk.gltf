@@ -18,7 +18,7 @@
                         1,
                         1
                     ],
-                    "intensity" : 1000,
+                    "intensity" : 10000,
                     "type" : "point",
                     "name" : "Light"
                 },
@@ -207,7 +207,7 @@
                     0,
                     0.6936665773391724,
                     0.8000000715255737,
-                    0.3499999940395355
+                    0.5
                 ],
                 "metallicFactor" : 0,
                 "roughnessFactor" : 0.5
