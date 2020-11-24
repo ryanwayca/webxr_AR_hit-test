@@ -212,9 +212,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             reticle.visible = true;
             reticle.matrix = pose.transform.matrix;
           }
-        }
 
-        // probe
+          // probe
 				lightProbe = new THREE.LightProbe();
 				scene.add( lightProbe );
 
@@ -222,6 +221,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 				directionalLight = new THREE.DirectionalLight( 0xffffff, API.directionalLightIntensity );
 				directionalLight.position.set( 10, 10, 10 );
 				scene.add( directionalLight );
+        }
 
         scene.startFrame();
 
