@@ -49,6 +49,17 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       import {vec3} from './js/render/math/gl-matrix.js';
       import {Ray} from './js/render/math/ray.js';
 
+      import { LightProbeGenerator } from './js/third-party/three-js/build/jsm/lights/LightProbeGenerator.js';
+
+      let lightProbe;
+			let directionalLight;
+      // linear color space
+			const API = {
+				lightProbeIntensity: 1.0,
+				directionalLightIntensity: 0.2,
+				envMapIntensity: 1
+			};
+
       // XR globals.
       let xrButton = null;
       let xrRefSpace = null;
@@ -202,6 +213,15 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             reticle.matrix = pose.transform.matrix;
           }
         }
+
+        // probe
+				lightProbe = new THREE.LightProbe();
+				scene.add( lightProbe );
+
+				// light
+				directionalLight = new THREE.DirectionalLight( 0xffffff, API.directionalLightIntensity );
+				directionalLight.position.set( 10, 10, 10 );
+				scene.add( directionalLight );
 
         scene.startFrame();
 
