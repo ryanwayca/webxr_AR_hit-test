@@ -79,3 +79,19 @@ canvas {
   color: rgb(80, 168, 252);
   background-color: rgba(255, 255, 255, 0.7);
 }
+
+#eng-btn {
+  position: absolute;
+  bottom: 20px;
+  left: calc(25% - 50px);
+  width: 100px;
+  height: 35px;
+}
+
+#fr-btn {
+  position: absolute;
+  bottom: 20px;
+  right: calc(25% - 50px);
+  width: 100px;
+  height: 35px;
+}
