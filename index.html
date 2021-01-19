@@ -126,6 +126,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       function onSessionStarted(session) {
         session.addEventListener('end', onSessionEnded);
         session.addEventListener('select', onSelect);
+        document.getElementById("eng-btn").style.display = "block"
+        document.getElementById("fr-btn").style.display = "block"
 
         if (!gl) {
           gl = createWebGLContext({
